@@ -4,7 +4,8 @@ QT += qml quick
 CONFIG += c++11
 
 SOURCES += main.cpp \
-    PaintedItem.cpp
+    PaintedItem.cpp \
+    QxThread.cpp
 
 RESOURCES += qml.qrc
 
@@ -15,5 +16,6 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS += \
-    PaintedItem.h
+    PaintedItem.h \
+    QxThread.h
 

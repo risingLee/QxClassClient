@@ -4,4 +4,10 @@ QxThread::QxThread()
 {
 
 }
+void QxThread::run()
+{
+    while(vector.length() > 0)
+    {
 
+    }
+}
