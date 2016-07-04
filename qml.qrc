@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>extra/QxPicPanel.qml</file>
+        <file>extra/QxMouseAre.qml</file>
+        <file>extra/MenuView.qml</file>
+    </qresource>
+</RCC>
