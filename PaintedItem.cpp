@@ -14,6 +14,7 @@ PaintedItem::PaintedItem(QQuickItem *parent)
     , m_pen(Qt::black)
 {
     m_pen.setCapStyle(Qt::RoundCap);
+    setPenWidth(5);
     setAcceptedMouseButtons(Qt::LeftButton);
 }
 

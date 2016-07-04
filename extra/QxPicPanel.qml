@@ -4,7 +4,7 @@ Rectangle {
 
     visible: false
     color: "red"
-    signal itemClick(var index)
+    signal itemClick(var src)
     ListView
     {
         id: listMenuView
@@ -18,13 +18,13 @@ Rectangle {
         id: listMenuModel
         ListElement
         {
-            name: "1.doc"
-            src: "www.baidu.com"
+            name: "pic1"
+            src: "http://pic14.nipic.com/20110615/1347158_233357498344_2.jpg"
         }
         ListElement
         {
-            name: "2.ppt"
-            src: "www.sina.com"
+            name: "pic2"
+            src: "http://pic35.nipic.com/20131105/6704106_015313024000_2.jpg"
         }
     }
 
@@ -54,7 +54,7 @@ Rectangle {
                 onClicked:
                 {
                     parent.color = "gray"
-                    itemClick(index)
+                    itemClick(src)
                 }
             }
         }

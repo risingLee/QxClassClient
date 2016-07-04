@@ -3,7 +3,8 @@ import QtQuick.Window 2.2
 import "extra"
 Window {
     visible: true
-
+    width: Screen.width
+    height: Screen.height
     MenuView
     {
         anchors.fill: parent
@@ -20,7 +21,7 @@ Window {
         visible: false
         onItemClick:
         {
-            picMax.show(index)
+            picMax.show(src)
         }
     }
 

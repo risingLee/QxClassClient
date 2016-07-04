@@ -5,10 +5,11 @@ Image
 {
     property string firstSrc: ""
     property string lastSrc: ""
-    source: "http://pic14.nipic.com/20110615/1347158_233357498344_2.jpg"
+    source: ""
     visible: false
-    function show(index)
+    function show(src)
     {
+        source = src
         visible = true
     }
 
