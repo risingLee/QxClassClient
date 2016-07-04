@@ -4,5 +4,6 @@
         <file>extra/QxPicPanel.qml</file>
         <file>extra/QxMouseAre.qml</file>
         <file>extra/MenuView.qml</file>
+        <file>extra/QxPicMax.qml</file>
     </qresource>
 </RCC>
