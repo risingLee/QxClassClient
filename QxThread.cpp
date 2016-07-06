@@ -1,13 +1,21 @@
-#include "QxThread.h"
+﻿#include "QxThread.h"
 
-QxThread::QxThread()
+QxThread::QxThread( QObject * parent )
 {
 
 }
 void QxThread::run()
 {
-    while(vector.length() > 0)
+    while(1)
     {
 
+        if(vector.length() > 0)
+        {
+            emit test("0");
+            QLineF f = vector.first();
+
+            emit sig_Position(f);
+            vector.removeFirst();
+        }
     }
 }

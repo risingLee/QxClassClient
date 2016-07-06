@@ -14,8 +14,12 @@ PaintedItem::PaintedItem(QQuickItem *parent)
     , m_pen(Qt::black)
 {
     m_pen.setCapStyle(Qt::RoundCap);
-    setPenWidth(5);
+    setPenWidth(4);
     setAcceptedMouseButtons(Qt::LeftButton);
+    m_thread = new QxThread(this);
+    connect(this, SIGNAL(sig_Position(QLineF)), this, SLOT(onPosition(QLineF)));
+    connect(m_thread, SIGNAL(test(QString)), this, SLOT(onTest(QString)));
+    m_thread->start();
 }
 
 PaintedItem::~PaintedItem()
@@ -70,6 +74,19 @@ void PaintedItem::mousePressEvent(QMouseEvent *event)
     }
 }
 
+
+void PaintedItem::onPosition(QLineF pos)
+{
+    m_element->m_lines.append(pos);
+    if(m_element->m_lines.length() % 3 == 0)
+        update();
+}
+
+void PaintedItem::onTest(QString test)
+{
+    qDebug()<<test;
+}
+
 void PaintedItem::mouseMoveEvent(QMouseEvent *event)
 {
     if(!m_bEnabled || !m_bPressed || !m_element)
@@ -78,10 +95,8 @@ void PaintedItem::mouseMoveEvent(QMouseEvent *event)
     }
     else
     {
-        //qDebug() << "mouse move";
-        m_element->m_lines.append(QLineF(m_lastPoint, event->localPos()));
+        emit sig_Position(QLineF(m_lastPoint, event->localPos()));
         m_lastPoint = event->localPos();
-        update();
     }
 }
 

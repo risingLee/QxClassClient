@@ -1,11 +1,11 @@
-#ifndef PAINTEDITEM_H
+﻿#ifndef PAINTEDITEM_H
 #define PAINTEDITEM_H
 #include <QQuickPaintedItem>
 #include <QVector>
 #include <QPointF>
 #include <QLineF>
 #include <QPen>
-
+#include "QxThread.h"
 class ElementGroup
 {
 public:
@@ -66,7 +66,11 @@ public:
     Q_INVOKABLE void undo();
 
     void paint(QPainter *painter);
-
+signals:
+    void sig_Position(QLineF pos);
+public slots:
+    void onPosition(QLineF pos);
+    void onTest(QString test);
 protected:
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
@@ -77,6 +81,7 @@ protected:
     QPointF m_lastPoint;
     QVector<ElementGroup*> m_elements;
     ElementGroup * m_element; // the Current ElementGroup
+    QxThread * m_thread;
     bool m_bEnabled;
     bool m_bPressed;
     bool m_bMoved;
